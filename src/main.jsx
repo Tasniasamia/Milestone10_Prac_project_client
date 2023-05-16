@@ -17,6 +17,7 @@ import Resisterlayout from './Components/Layout/Resisterlayout.jsx';
 import Resister from './Components/Pages/Home/Resister.jsx';
 import PrivateRoute from './Components/Pages/Share/private.jsx';
 import Login from './Components/Pages/Home/Login.jsx';
+import Upadate from './Components/Pages/Home/Upadate.jsx';
 
 const router = createBrowserRouter([
   {
@@ -45,7 +46,13 @@ const router = createBrowserRouter([
         
       },{
         path:"/Layout2/Admin",
-        element:<Admin></Admin>
+        element:<Admin></Admin>,
+        loader:()=>fetch('http://localhost:8990/admindata')}
+      ,{
+        path:"/Layout2/Admin/:id",
+        element:<Upadate></Upadate>,
+        loader:({params})=>fetch(`http://localhost:8990/admindata/${params.id}`)
+        
       }
     ]
   },{

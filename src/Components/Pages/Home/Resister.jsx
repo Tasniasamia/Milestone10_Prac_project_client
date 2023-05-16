@@ -21,21 +21,28 @@ const admins={
     email,name,password,date,desc,organize
 }
 console.log(admins);
-fetch('http://localhost:8990/admin',{
-    method:"POST",
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-    body:JSON.stringify(admins)
-}).then(res=>res.json()).then(data=>console.log(data));
+// fetch('http://localhost:8990/admin',{
+//     method:"POST",
+//     headers: {
+//         'Accept': 'application/json',
+//         'Content-Type': 'application/json'
+//       },
+//     body:JSON.stringify(admins)
+// }).then(res=>res.json()).then(data=>console.log(data));
 receivedata.resister(email,password)
 .then((userCredential) => 
 {const user = userCredential.user;
     console.log(user);
     setSuccess("User has Submitted Successfull");
     setErr(" ");
-
+    fetch('http://localhost:8990/admin',{
+        method:"POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+        body:JSON.stringify(admins)
+    }).then(res=>res.json()).then(data=>console.log(data));
     receivedata.upadateprofiles(name).then(() => {
     // Profile updated!
     // ...
