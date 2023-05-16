@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { authdataall } from '../Share/Authprovider';
 
 const Createcard = () => {
+    const receivedata=useContext(authdataall);
+    console.log(receivedata);
     const getallvalues=(event)=>{
 
         event.preventDefault();
@@ -8,8 +11,9 @@ const Createcard = () => {
         const date=event.target.date.value;
         const img=event.target.imag.value;
         const description=event.target.des.value;
+        const email=receivedata.user.email;
         const user={
-            title,date,img,description
+            title,date,img,description,email
         }
         console.log(user);
 

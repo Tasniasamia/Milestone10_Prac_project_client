@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import pik from '../../../assets/Group 1329.png'
 import { Link } from 'react-router-dom';
+import { authdataall } from './Authprovider';
 const Header = () => {
+    const receivedata=useContext(authdataall);
     const navitem=(
         <>
          <li><Link to="/">Home</Link></li>
@@ -31,8 +33,15 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-        <button className="btn btn-primary me-2"><Link to="/resisterlayout/resister"className='text-decoration-none text-white'>Resister</Link></button>
-<button className="btn">Admin</button>
+      {
+      receivedata.user?<button className="btn btn-info me-2 text-white"onClick={receivedata.logout}>LogOut</button>: <button className="btn btn-info me-2 text-white"><Link to="/resisterlayout/resister"className='text-decoration-none text-white'>Resister</Link></button>
+      }
+       
+
+{
+    receivedata.user?<button className="btn">Admin</button>:""
+}
+
         </div>
       </div>
     );

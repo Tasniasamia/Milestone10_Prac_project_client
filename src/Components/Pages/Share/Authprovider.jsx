@@ -68,6 +68,7 @@ useEffect(()=>{
             // if(data.token){
             //     localStorage.setItem('doctor-token',data.token)
             // }})
+            console.log(user);
             setUser(user);
             setLoad(false);
           // User is signed in, see docs for a list of available properties

@@ -1,18 +1,21 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
 import Selectcarditem from './Selectcarditem';
+import { authdataall } from '../Share/Authprovider';
 
 const Selectcard = () => {
-    const loaddata=useLoaderData();
-//     const loaddata=useLoaderData();
-//     console.log(loaddata);
-//     return (
+    const receivedata=useContext(authdataall);
+    const [book,setBook]=useState([])
+   useEffect(()=>{
+    fetch(`http://localhost:8990/productsbyemail?email=${receivedata.user.email}`)
+    .then(res=>res.json()).then(data=>{console.log(data);setBook(data)})
+   // eslint-disable-next-line react-hooks/exhaustive-deps
+   },[])
 
 return(
 
     <div className='grid md:grid-cols-2 grid-cols-1 gap-6 my-10'>
         {
-        loaddata.map(index=><Selectcarditem indexdata={index} key={index._id}></Selectcarditem>)
+        book.map(index=><Selectcarditem indexdata={index} key={index._id}></Selectcarditem>)
 
         }
     </div>

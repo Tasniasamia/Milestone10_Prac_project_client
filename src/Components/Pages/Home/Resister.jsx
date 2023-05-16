@@ -49,7 +49,11 @@ receivedata.resister(email,password)
   }).catch((error) => {
     // An error occurred
     // ...
-  });})
+  });
+
+receivedata.logout();
+
+})
 .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
