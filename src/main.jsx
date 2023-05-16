@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<CollectCreatingcard></CollectCreatingcard>,
-        loader:()=>fetch('http://localhost:8990/products')
+        // loader:()=>fetch('http://localhost:8990/products')
       },{
         path:"/events",
         element:<Selectcard></Selectcard>,
