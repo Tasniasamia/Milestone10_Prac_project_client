@@ -8,7 +8,10 @@ const Header = () => {
         <>
          <li><Link to="/">Home</Link></li>
                   <li><Link to="/Layout2/AddItem">Donation</Link></li>
-                  <li><Link to="/events">Events</Link></li>
+                  {
+                    receivedata.user?   <li><Link to="/events">Events</Link></li>:""
+                  }
+               
                   <li><a>Blog</a></li>
                 
 
@@ -25,7 +28,7 @@ const Header = () => {
              {navitem}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl"><img src={pik} style={{height:"50px"}} alt="logo" /></a>
+          <Link to="/" className="btn btn-ghost normal-case text-xl"><img src={pik} style={{height:"50px"}} alt="logo" /></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">

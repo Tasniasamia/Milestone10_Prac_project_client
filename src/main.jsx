@@ -42,7 +42,7 @@ const router = createBrowserRouter([
     children:[
       {
         path:"/Layout2/AddItem",
-        element:<Createcard></Createcard>
+        element:<PrivateRoute><Createcard></Createcard></PrivateRoute>
         
       },{
         path:"/Layout2/Admin",

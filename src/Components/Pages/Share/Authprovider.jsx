@@ -68,6 +68,17 @@ useEffect(()=>{
             // if(data.token){
             //     localStorage.setItem('doctor-token',data.token)
             // }})
+            const loguser={email:user.email};
+            fetch('http://localhost:8990/jwt',{
+                method:"POST",
+                headers:{
+                    "content-type":"application/json"
+                },
+                body:JSON.stringify(loguser)
+            }).then(res=>res.json()).then(data=>{console.log(data);
+            if(data.token){
+                localStorage.setItem("jwt_token",data.token)
+            }})
             console.log(user);
             setUser(user);
             setLoad(false);
@@ -76,7 +87,7 @@ useEffect(()=>{
           const uid = user.uid;
           // ...
         } else {
-            // localStorage.removeItem('doctor-token');
+            localStorage.removeItem("jwt_token");
           // User is signed out
           // ...
         }

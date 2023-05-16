@@ -6,8 +6,10 @@ const Selectcard = () => {
     const receivedata=useContext(authdataall);
     const [book,setBook]=useState([])
    useEffect(()=>{
-    fetch(`http://localhost:8990/productsbyemail?email=${receivedata.user.email}`)
-    .then(res=>res.json()).then(data=>{console.log(data);setBook(data)})
+    fetch(`http://localhost:8990/productsbyemail?email=${receivedata.user.email}`,{
+        method:"GET",
+        headers:{
+            authorization:`Bearer ${localStorage.getItem("jwt_token")}`}}).then(res=>res.json()).then(data=>{console.log(data);setBook(data)})
    // eslint-disable-next-line react-hooks/exhaustive-deps
    },[])
 
