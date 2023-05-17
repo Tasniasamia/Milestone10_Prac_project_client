@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Admindata = (props) => {
     const propsdata=props.indexdata;
     function deletefunction(id){
-        fetch(`http://localhost:8990/admindelete/${id}`,{
+        fetch(`https://volunteer-server-tasniasamia.vercel.app/admindelete/${id}`,{
             method:"DELETE"
         } )
             .then(res=>res.json())

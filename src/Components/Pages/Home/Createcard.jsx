@@ -17,7 +17,7 @@ const Createcard = () => {
         }
         console.log(user);
 
-        fetch('http://localhost:8990/aditems',{
+        fetch('https://volunteer-server-tasniasamia.vercel.app/aditems',{
             method:"POST",
             headers:{
                 "content-type":"application/json"

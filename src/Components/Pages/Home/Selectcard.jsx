@@ -6,7 +6,7 @@ const Selectcard = () => {
     const receivedata=useContext(authdataall);
     const [book,setBook]=useState([])
    useEffect(()=>{
-    fetch(`http://localhost:8990/productsbyemail?email=${receivedata.user.email}`,{
+    fetch(`https://volunteer-server-tasniasamia.vercel.app/productsbyemail?email=${receivedata.user.email}`,{
         method:"GET",
         headers:{
             authorization:`Bearer ${localStorage.getItem("jwt_token")}`}}).then(res=>res.json()).then(data=>{console.log(data);setBook(data)})

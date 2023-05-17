@@ -35,7 +35,7 @@ receivedata.resister(email,password)
     console.log(user);
     setSuccess("User has Submitted Successfull");
     setErr(" ");
-    fetch('http://localhost:8990/admin',{
+    fetch('https://volunteer-server-tasniasamia.vercel.app/admin',{
         method:"POST",
         headers: {
             'Accept': 'application/json',

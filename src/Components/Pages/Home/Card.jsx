@@ -3,7 +3,7 @@ import React from 'react';
 const Card = (props) => {
     function getvaluebtn(){
         const propdata=props.indexdata;
-        fetch('http://localhost:8990/getferdata',{
+        fetch('https://volunteer-server-tasniasamia.vercel.app/getferdata',{
             method:"POST",
             headers:{
                 "content-type":"application/json"

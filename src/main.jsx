@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<CollectCreatingcard></CollectCreatingcard>,
-        // loader:()=>fetch('http://localhost:8990/products')
+        
       },{
         path:"/events",
         element:<Selectcard></Selectcard>,
@@ -47,11 +47,11 @@ const router = createBrowserRouter([
       },{
         path:"/Layout2/Admin",
         element:<Admin></Admin>,
-        loader:()=>fetch('http://localhost:8990/admindata')}
+        loader:()=>fetch('https://volunteer-server-tasniasamia.vercel.app/admindata')}
       ,{
         path:"/Layout2/Admin/:id",
         element:<Upadate></Upadate>,
-        loader:({params})=>fetch(`http://localhost:8990/admindata/${params.id}`)
+        loader:({params})=>fetch(`https://volunteer-server-tasniasamia.vercel.app/admindata/${params.id}`)
         
       }
     ]

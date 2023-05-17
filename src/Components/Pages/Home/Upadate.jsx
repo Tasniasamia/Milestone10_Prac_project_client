@@ -17,7 +17,7 @@ console.log(loaddata._id);
     };
 
 
-    fetch(`http://localhost:8990/adminupdate/${loaddata._id}`,{
+    fetch(`https://volunteer-server-tasniasamia.vercel.app/adminupdate/${loaddata._id}`,{
         method:"PUT",
         headers:{
             "content-type":"application/json"

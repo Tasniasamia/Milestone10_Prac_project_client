@@ -13,7 +13,7 @@ const CollectCreatingcard = () => {
         
     const fetchData = async () => {
         try {
-          const response = await fetch(`http://localhost:8990/products?currentPage=${currentPage}&itemsPerPage=${itemsPerPage}`);
+          const response = await fetch(`https://volunteer-server-tasniasamia.vercel.app/products?currentPage=${currentPage}&itemsPerPage=${itemsPerPage}`);
           const jsonData = await response.json();
           setloadata(jsonData);
         } catch (error) {
@@ -25,7 +25,7 @@ const CollectCreatingcard = () => {
     },[currentPage, itemsPerPage])
     const optional=[5,8,10];
     useEffect(()=>{
-        fetch(`http://localhost:8990/collectiondatalength`)
+        fetch(`https://volunteer-server-tasniasamia.vercel.app/collectiondatalength`)
         .then(res=>res.json())
         .then(data=>{setLength(data.length);console.log(data.length)})
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -46,9 +46,9 @@ const CollectCreatingcard = () => {
   const pageButtons = [];
   for (let pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
     pageButtons.push(
-        <div className=' btn-group'>
+        <div className=' btn-group'  key={pageNumber}>
       <button
-        key={pageNumber}
+      
         onClick={() => handlePageChange(pageNumber)}
         className={currentPage === pageNumber ? 'btn btn-primary' : 'btn'}
       >
@@ -56,7 +56,7 @@ const CollectCreatingcard = () => {
       </button></div>
     );
   }
-  
+  console.log(optional);
     
     return (
         <div>
@@ -65,16 +65,19 @@ const CollectCreatingcard = () => {
             loaddata.map(index=><Card key={index._id} indexdata={index}></Card>)
         }
     </div>
-    <div>
-    Current page :{currentPage}<br/>
-        {pageButtons}
-       
-    <select value={itemsPerPage} onChange={handleItemsPerPageChange}>
+   
+    
+    <div  style={{textAlign:"center"}}>
+                Current page :{currentPage}<br/>
+      {pageButtons}
+      <select value={itemsPerPage} onChange={handleItemsPerPageChange}>
         {
             optional.map(index=><option value={index} key={index}>{index}</option>)
         }
-    
-      </select> 
+        {/* <option value="5">5 items per page</option>
+        <option value="10">10 items per page</option>
+        <option value="15">15 items per page</option> */}
+      </select>
     </div>
        </div>
     );

@@ -69,7 +69,7 @@ useEffect(()=>{
             //     localStorage.setItem('doctor-token',data.token)
             // }})
             const loguser={email:user.email};
-            fetch('http://localhost:8990/jwt',{
+            fetch('https://volunteer-server-tasniasamia.vercel.app/jwt',{
                 method:"POST",
                 headers:{
                     "content-type":"application/json"
